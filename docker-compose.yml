@@ -1,0 +1,16 @@
+version: "2"
+services:
+  kibana:
+    image: dd/kibana:5.2.2
+    environment:
+      ELASTICSEARCH_URL: "http://elasticsearch:9200"
+      SERVER_BASEPATH: ""
+      KIBANA_INDEX: ".kibana"
+      KIBANA_DEFAULTAPPID: "dashboard/into"
+      ELASTICSEARCH_PINGTIMEOUT: 5000
+      ELASTICSEARCH_REQUESTTIMEOUT: 60000
+      LOGGING_DEST: "stdout"
+    ports:
+      - 5601:5601/tcp
+    volumes:
+      - /opt/kibana/plugins:/usr/share/kibana/plugins
