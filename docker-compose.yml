@@ -1,7 +1,7 @@
 version: "2"
 services:
   kibana:
-    image: dd/kibana:5.2.2
+    image: v01t/kibana:5.2.2
     environment:
       ELASTICSEARCH_URL: "http://elasticsearch:9200"
       SERVER_BASEPATH: ""
