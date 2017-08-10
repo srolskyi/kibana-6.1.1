@@ -1,7 +1,7 @@
 FROM centos:7
 LABEL maintainer "Vladimir Goldetsky <goldetsky@gmail.com>"
 
-ENV KIBANA_VERSION 5.2.2
+ENV KIBANA_VERSION 5.5.1
 
 ENV ELASTIC_CONTAINER true
 ENV PATH=/usr/share/kibana/bin:$PATH
