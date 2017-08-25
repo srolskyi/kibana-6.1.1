@@ -1,5 +1,5 @@
 FROM centos:7
-LABEL maintainer "Vladimir Goldetsky <goldetsky@gmail.com>"
+LABEL maintainer "Serg Rolskyi <sergii.rolskyi@linux-tricks.net>"
 
 ENV KIBANA_VERSION 5.5.2
 
@@ -18,7 +18,6 @@ RUN groupadd --gid 1000 kibana && \
     useradd --uid 1000 --gid 1000 \
       --home-dir /usr/share/kibana --no-create-home \
       kibana
-USER kibana
 
 # SENTINL
 ENV SENTINL_SMPT localhost
@@ -27,15 +26,18 @@ ENV EMAIL_SSL false
 ENV REPORT_ACTIVE false
 ENV REPORT_PATH /var/tmp/
 
-RUN echo 'sentinl:
-  settings:
-    email:
-      active: ${EMAIL_ACTIVE}
-      host: ${SENTINL_SMPT}
-      ssl: ${EMAIL_SSL}
-    report:
-      active: ${REPORT_ACTIVE}
-      tmp_path: ${REPORT_PATH}' >> /etc/kibana/kibana.yml 
+RUN echo 'sentinl:\n\
+  settings:\n\
+    email:\n\
+      active: ${EMAIL_ACTIVE}\n\
+      host: ${SENTINL_SMPT}\n\
+      ssl: ${EMAIL_SSL}\n\
+    report:\n\
+      active: ${REPORT_ACTIVE}\n\
+      tmp_path: ${REPORT_PATH}\n'\
+    >> /opt/kibana/kibana.yml 
+
+USER kibana
 
 EXPOSE 5601
 
