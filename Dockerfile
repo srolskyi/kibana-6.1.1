@@ -20,6 +20,23 @@ RUN groupadd --gid 1000 kibana && \
       kibana
 USER kibana
 
+# SENTINL
+ENV SENTINL_SMPT localhost
+ENV EMAIL_ACTIVE false
+ENV EMAIL_SSL false
+ENV REPORT_ACTIVE false
+ENV REPORT_PATH /var/tmp/
+
+RUN echo 'sentinl:
+  settings:
+    email:
+      active: ${EMAIL_ACTIVE}
+      host: ${SENTINL_SMPT}
+      ssl: ${EMAIL_SSL}
+    report:
+      active: ${REPORT_ACTIVE}
+      tmp_path: ${REPORT_PATH}' >> /etc/kibana/kibana.yml 
+
 EXPOSE 5601
 
 CMD /usr/local/bin/kibana-docker
