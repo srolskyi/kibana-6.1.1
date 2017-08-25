@@ -14,8 +14,8 @@ RUN curl -Ls https://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSI
 
 ADD bin/kibana-docker /usr/local/bin/
 
-RUN groupadd --gid 993 kibana && \
-    useradd --uid 995 --gid 993 \
+RUN groupadd --gid 1000 kibana && \
+    useradd --uid 1000 --gid 1000 \
       --home-dir /usr/share/kibana --no-create-home \
       kibana
 USER kibana
