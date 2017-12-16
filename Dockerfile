@@ -19,24 +19,6 @@ RUN groupadd --gid 1000 kibana && \
       --home-dir /usr/share/kibana --no-create-home \
       kibana
 
-# SENTINL
-ENV SENTINL_SMPT localhost
-ENV EMAIL_ACTIVE false
-ENV EMAIL_SSL false
-ENV REPORT_ACTIVE false
-ENV REPORT_PATH /var/tmp/
-
-RUN echo 'sentinl:\n\
-  settings:\n\
-    email:\n\
-      active: ${EMAIL_ACTIVE}\n\
-      host: ${SENTINL_SMTP}\n\
-      ssl: ${EMAIL_SSL}\n\
-    report:\n\
-      active: ${REPORT_ACTIVE}\n\
-      tmp_path: ${REPORT_PATH}\n'\
-    >> /opt/kibana/kibana.yml 
-
 USER kibana
 
 EXPOSE 5601
