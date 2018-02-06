@@ -1,7 +1,7 @@
 FROM centos:7
 LABEL maintainer "Serg Rolskyi <sergii.rolskyi@linux-tricks.net>"
 
-ENV KIBANA_VERSION 6.1.1
+ENV KIBANA_VERSION 6.1.3
 
 ENV ELASTIC_CONTAINER true
 ENV PATH=/usr/share/kibana/bin:$PATH
