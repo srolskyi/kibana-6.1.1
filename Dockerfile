@@ -4,6 +4,7 @@ LABEL maintainer "Serg Rolskyi <sergii.rolskyi@linux-tricks.net>"
 ENV KIBANA_VERSION 6.2.0
 
 ENV ELASTIC_CONTAINER true
+
 ENV PATH=/usr/share/kibana/bin:$PATH
 
 RUN yum update -y && yum install -y fontconfig freetype && yum clean all
