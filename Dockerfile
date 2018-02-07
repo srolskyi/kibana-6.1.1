@@ -7,7 +7,7 @@ ENV ELASTIC_CONTAINER true
 
 ENV PATH=/usr/share/kibana/bin:$PATH
 
-RUN yum update -y && yum install -y fontconfig freetype && yum clean all
+RUN yum update -y && yum install -y fontconfig freetype
 
 WORKDIR /usr/share/kibana
 RUN curl -Ls https://artifacts.elastic.co/downloads/kibana/kibana-${KIBANA_VERSION}-linux-x86_64.tar.gz | tar --strip-components=1 -zxf - && \
