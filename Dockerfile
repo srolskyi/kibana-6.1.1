@@ -20,6 +20,8 @@ RUN groupadd --gid 1000 kibana && \
       --home-dir /usr/share/kibana --no-create-home \
       kibana
 
+RUN cd /usr/share/kibana && kibana-plugin install x-pack
+
 USER kibana
 
 EXPOSE 5601
